@@ -59,7 +59,8 @@ def install_zabbix_agent():
     	installed = False
 	remove_zabbix_agent()
 	print("-----------------Disabling SELINUX------------------")
-	os.system("sudo setenforce 0")
+	os.system("sudo sed -i 's/^SELINUX=/SELINUX=permissive' /etc/selinux/config")
+	
 	
 	print("-----------------Installation Started, Updating----------------\n")
 	os.system("sudo yum update")
