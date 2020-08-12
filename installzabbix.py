@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #zabbix-agent installer
 import sys
 import os
@@ -21,7 +21,7 @@ def get_host_name():
 
 # Check Hostname Validation
 def valid_host_name(hostname):
-    if hostname != "" or hostname != None or hostname != "localhost":
+    if hostname != "" and hostname != None and hostname != "localhost":
 	    return True
     else:
 	    return False			    
@@ -67,8 +67,8 @@ def install_zabbix_agent():
         print("-----------------Disabling SELINUX------------------")
         os.system("sudo setenforce 0")
 	
-	    #print("-----------------Installation Started, Updating----------------\n")
-	    #os.system("sudo yum update")
+        print("-----------------Installation Started, Updating----------------\n")
+        os.system("sudo yum update")
 		
         print("----------------Installing repo----------------\n")
         version = input("Enter the version of zabbix to install(3, 4, 5): ")
@@ -91,7 +91,6 @@ def install_zabbix_agent():
             print("---------------------Server/Server Active Configuration--------------------\n")
             while True:
                 server_IP = zabbix_server_IP()
-                print(server_IP)
                 if valid_IP(server_IP):
                     print("---------------------Server IP Confirmed---------------------\n")
                     os.system("sudo sed -i 's/^Server=.*/Server="+server_IP+"/g' /etc/zabbix/zabbix_agentd.conf")
