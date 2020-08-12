@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/python
 #zabbix-agent installer
 import sys
 import os
