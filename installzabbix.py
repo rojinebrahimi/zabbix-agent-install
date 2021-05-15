@@ -27,7 +27,6 @@ def valid_host_name(hostname):
 	    return False			    
     return hostname
 
-
 # Remove Existing Zabbix Agent
 def remove_zabbix_agent():
     try:
@@ -44,12 +43,10 @@ def remove_zabbix_agent():
     except Exception as e:
         print(e)	
 
-
 # Asking Zabbix Server IP Address
 def zabbix_server_IP():
     server_IP = input("Enter the zabbix server IP, please (exm: 192.168.X.X ): ") 
     return server_IP
-
 
 # Check IP validation    
 def valid_IP(server_IP):
@@ -101,7 +98,6 @@ def install_zabbix_agent():
                     print("Server IP was not confirmed, try again...\n")
                     continue
 									
-
             print('--------------------Hostname Configuration-------------------\n')
             while True:
                 user_host_name = get_host_name()
